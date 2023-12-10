@@ -30,22 +30,26 @@
 <?php
     if (!isset($_GET['number1'],$_GET['number2'])){
         print 'Пожалуйста, введите номер';
-    } else{
-            $num1 = $_GET['number1'];
-            $num2 = $_GET['number2'];
-            if ($_GET['mat_amallar']== '+'){
-                print $num1+$num2;
-            }elseif ($_GET['mat_amallar']== '-'){
-                print $num1-$num2;
-            }elseif ($_GET['mat_amallar']== '*'){
-                print $num1*$num2;
-            }elseif ($_GET['mat_amallar']== '/'){
-                print $num1/$num2;
+    } else {
+        $num1 = $_GET['number1'];
+        $num2 = $_GET['number2'];
+
+        if (ctype_digit($num1) & ctype_digit($num2)){
+            if ($_GET['mat_amallar'] == '+') {
+                print $num1 + $num2;
+            } elseif ($_GET['mat_amallar'] == '-') {
+                print $num1 - $num2;
+            } elseif ($_GET['mat_amallar'] == '*') {
+                print $num1 * $num2;
+            } elseif ($_GET['mat_amallar'] == '/') {
+                print $num1 / $num2;
             }
 
+        }else{
+            print "Вы ввели неверную информацию, здесь введен только номер";
         }
+    }
 
-  
 
 ?>
 
